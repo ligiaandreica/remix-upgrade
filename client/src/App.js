@@ -33,9 +33,11 @@ const getRemixData = async () => {
 };
 
 function Page() {
-  const query = useQuery({ queryKey: [queryKey], queryFn: getRemixData });
-  const data = query.data;
-  console.log(data);
+  const { data, isInitialLoading } = useQuery({
+    queryKey: [queryKey],
+    queryFn: getRemixData,
+  });
+  console.log("Remix data", data, isInitialLoading);
 
   return <div />;
 }

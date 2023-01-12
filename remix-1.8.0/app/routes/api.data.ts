@@ -22,5 +22,5 @@ export const loader: LoaderFunction = async ({ request }) => {
     return corsJsonResponse(request, {}, {});
   }
   const response = { hello: "world" };
-  return json(response);
+  return corsJsonResponse(request, response, { statusText: "ok", status: 200 });
 };
